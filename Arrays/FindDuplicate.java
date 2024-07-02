@@ -1,4 +1,6 @@
 //https://www.naukri.com/code360/problems/duplicate-in-array_893397?interviewProblemRedirection=true&leftPanelTabValue=SUBMISSION
+//with hashset
+
 
 import java.util.ArrayList;
 import java.util.HashSet;
