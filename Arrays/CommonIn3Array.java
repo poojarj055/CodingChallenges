@@ -15,8 +15,9 @@ class Solution {
     public List<Integer> commonElements(List<Integer> arr1, List<Integer> arr2,
                                         List<Integer> arr3) {
         // Code Here
-         HashSet<Integer> set = new HashSet<>();
-         ArrayList<Integer> result = new ArrayList<>();
+       // Code Here
+         HashSet<Integer> set = new LinkedHashSet<>();
+         
         
         int i = 0, j = 0, k = 0;
         
@@ -26,25 +27,20 @@ class Solution {
             int num3 = arr3.get(k);
             
             if (num1 == num2 && num2 == num3) {
-               if (set.add(num1)) {
-                    result.add(num1);
+               set.add(num1);
                 i++;
                 j++;
                 k++;
-            }
-            }else {
-                // Advance the pointer of the list with the minimum element
-                int min = Math.min(Math.min(num1, num2), num3);
-                if (num1 == min) {
-                    i++;
-                } else if (num2 == min) {
+            
+            }else if (num1 > num2) {
                     j++;
-                } else if (num3 == min) {
+                } else if (num2 > num3) {
                     k++;
+                } else {
+                    i++;
                 }
             }
-        }
-        
+        ArrayList<Integer> result = new ArrayList<>(set);
         return result;
     }
 }
