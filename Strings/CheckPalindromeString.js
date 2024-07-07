@@ -25,5 +25,7 @@ var isPalindrome = function(s) {
 
 function isLetterOrDigit(c) {
     return /[a-zA-Z0-9]/.test(c);
+    // The .test() method is called on the regular expression to test whether the string c contains any character that matches the pattern
+    // defined by the regular expression.
 }
 
