@@ -14,6 +14,8 @@
 // Input: s = "the sky is blue"
 // Output: "blue is sky the"
 
+
+Brute Force:
 var reverseWords = function(s) {
     const strArray = s.split(/\s+/);
     let str="";
@@ -22,3 +24,13 @@ var reverseWords = function(s) {
     }
     return str.trim();
 };
+
+Optimized Approach:
+var reverseWords = function(s) {
+     // Split the string by one or more spaces and filter out any empty strings
+    const strArray = s.trim().split(/\s+/);
+    // Reverse the array of words
+    strArray.reverse();
+    // Join the words with a single space and return the result
+    return strArray.join(' ');
+}
