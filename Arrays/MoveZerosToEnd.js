@@ -7,6 +7,8 @@
 
 var moveZeroes = function(nums) {
     let j=-1;
+    // This loop iterates through the array to find the first zero. 
+    // When it finds a zero, it sets j to the index of that zero and breaks out of the loop. If no zero is found, j remains -1.
     for (let i = 0; i < nums.length; i++) {
         if (nums[i] === 0) {
             j = i;
