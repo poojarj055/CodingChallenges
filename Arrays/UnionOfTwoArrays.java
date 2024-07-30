@@ -44,7 +44,8 @@ Set<String> set3 = new TreeSet<>();       // Sorted order, no duplicates
 `````````````````
 
 
-Another optimzed approach:
+Another optimzed approach if question comes like this:
+"You may have to assume that ‘ARR1’ has a size equal to ‘M’ + ‘N’ such that ‘ARR1’ has enough space to add all the elements of ‘ARR2’ in ‘ARR1’.":
 ````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 import java.util.Arrays;
 
