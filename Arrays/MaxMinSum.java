@@ -29,3 +29,23 @@ public class Solution {
 
   }
 }
+
+
+another way:
+`````````````````````````````````````````````````````````````
+public class Solution {
+  public static int sumOfMaxMin(int[] arr, int n) {
+      // Write your code here.
+      int max=Integer.MAX_VALUE;
+      int min=Integer.MIN_VALUE;
+      for(int i=0;i<n;i++){
+        if(min<arr[i]){
+          min=arr[i];
+        }
+        if(max>arr[i]){
+          max=arr[i];
+        }
+      }
+      return min+max;
+  }
+}
