@@ -11,6 +11,29 @@
 // Input: nums = [-2,-1,2,1], k = 1
 // Output: 2
 // Explanation: The subarray [-1, 2] sums to 1 and is the longest.
+
+class Solution {
+    public int maxSubArrayLen(int[] nums, int k) {
+        int maxLength = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            int sum = 0;  // Reset sum for new subarray starting at i
+            
+            for (int j = i; j < nums.length; j++) {
+                sum += nums[j];  // Add current element to sum
+
+                if (sum == k) {  // If sum matches k, update maxLength
+                    maxLength = Math.max(maxLength, j - i + 1);
+                }
+            }
+        }
+
+        return maxLength;
+    }
+}
+-------------------------------------------------------
+
+
  
 ## **Optimized Approach (Using HashMap)**
 1. **Use a HashMap** to store `(prefixSum → index)`, where `prefixSum` is the cumulative sum from the beginning of the array.
