@@ -18,7 +18,7 @@ Explanation: Replace the one 'A' in the middle with 'B' and form "AABBBBA".
 The substring "BBBB" has the longest repeating letters, which is 4.
 There may exists other ways to achieve this answer too.
  
-
+```
 class Solution {
     public int characterReplacement(String s, int k) {
         int[] count = new int[26]; // Frequency of each character
@@ -39,7 +39,7 @@ class Solution {
         return maxLength;
     }
 }
-
+```
 
 
 Let's break down the **Sliding Window** approach used in your Java code for **Longest Repeating Character Replacement** and do a **dry run** with an example.
