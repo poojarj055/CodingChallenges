@@ -43,8 +43,8 @@ public class Solution {
         int diag = 0, antiDiag = 0;
 
         for (int i = 0; i < moves.length; i++) {
-            int r = moves[i][0];
-            int c = moves[i][1];
+            int r = moves[i][0]; // gets the row number of the move
+            int c = moves[i][1]; // gets the column number of the move
             int player = (i % 2 == 0) ? 1 : -1;
 
             rows[r] += player;
