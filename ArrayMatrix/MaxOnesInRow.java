@@ -43,10 +43,11 @@ class Solution {
             }
             }
         }
-        int []result=new int[2];
-        result[0]=rowWithMaxOnes;
-        result[1]=maxOnes;
-        return result;
+        // int []result=new int[2];
+        // result[0]=rowWithMaxOnes;
+        // result[1]=maxOnes;
+        // return result;
+       return new int[] { rowWithMaxOnes, maxOnes };
     }
 }
 
