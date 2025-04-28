@@ -13,3 +13,46 @@
 // Output: [[5,17,4,1,52,7],[11,11,25,45,8,69],[14,23,25,44,58,15],[22,27,31,36,50,66],[84,28,75,33,55,68]]
 
 
+class Solution {
+    public int[][] diagonalSort(int[][] mat) {
+        int m = mat.length;
+        int n = mat[0].length;
+
+        // Process diagonals starting from the first column
+        for (int row = m - 1; row >= 0; row--) {
+            sortDiagonal(mat, row, 0, m, n);
+        }
+
+        // Process diagonals starting from the first row (excluding 0,0 because it's already done)
+        for (int col = 1; col < n; col++) {
+            sortDiagonal(mat, 0, col, m, n);
+        }
+
+        return mat;
+    }
+
+    private void sortDiagonal(int[][] mat, int row, int col, int m, int n) {
+        ArrayList<Integer> list = new ArrayList<>();
+        int r = row, c = col;
+
+        // Step 1: Collect the diagonal
+        while (r < m && c < n) {
+            list.add(mat[r][c]);
+            r++;
+            c++;
+        }
+
+        // Step 2: Sort the diagonal
+        Collections.sort(list);
+
+        // Step 3: Put back the sorted values
+        r = row;
+        c = col;
+        int idx = 0;
+        while (r < m && c < n) {
+            mat[r][c] = list.get(idx++);
+            r++;
+            c++;
+        }
+    }
+}
