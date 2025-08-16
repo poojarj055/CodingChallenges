@@ -1,14 +1,9 @@
-I'll create a comprehensive markdown file that combines both screenshots about sliding window techniques. This will be a great reference document for coding preparation.
-Read file: /Users/praj8/Work/forked_repo/emplymnt-policies-paytypes
-Ran tool
-Perfect! I can see this is a project workspace with existing documentation. I'll create a comprehensive markdown file about sliding window techniques. Let me create it in the root directory alongside the other documentation files.
-Read file: README.md
-Now I'll create a comprehensive markdown file that covers both sliding window concepts from the screenshots:
+I'll create the markdown file again with Java implementations instead of Python. Let me create the comprehensive sliding window guide with Java code examples.
 
-```markdown:sliding-window-guide.md
-# Sliding Window Techniques - Complete Guide
+```java:sliding-window-guide.md
+# Sliding Window Techniques - Complete Guide (Java)
 
-A comprehensive reference for identifying and implementing sliding window algorithms in coding problems.
+A comprehensive reference for identifying and implementing sliding window algorithms in coding problems using Java.
 
 ## Table of Contents
 - [Problem Identification](#problem-identification)
@@ -83,10 +78,10 @@ Every sliding window algorithm consists of these 4 core components:
 - **Implementation**: `right++`
 - **When**: Typically done in the main loop iteration
 
-```python
-# Expand window by including arr[right]
-window_sum += arr[right]
-char_count[arr[right]] += 1
+```java
+// Expand window by including arr[right]
+windowSum += arr[right];
+charCount.put(arr[right], charCount.getOrDefault(arr[right], 0) + 1);
 ```
 
 ### 2. 🔵 **Shrink Window**
@@ -95,12 +90,16 @@ char_count[arr[right]] += 1
 - **Implementation**: `left++`
 - **When**: Usually done in a while loop when conditions are not met
 
-```python
-# Shrink window by excluding arr[left]
-while window_is_invalid():
-    window_sum -= arr[left]
-    char_count[arr[left]] -= 1
-    left += 1
+```java
+// Shrink window by excluding arr[left]
+while (isWindowInvalid()) {
+    windowSum -= arr[left];
+    charCount.put(arr[left], charCount.get(arr[left]) - 1);
+    if (charCount.get(arr[left]) == 0) {
+        charCount.remove(arr[left]);
+    }
+    left++;
+}
 ```
 
 ### 3. 🟡 **Check Validity**
@@ -108,15 +107,16 @@ while window_is_invalid():
 - **Tools Used**:
   - **HashSet**: For uniqueness checks
   - **Running Sum**: For sum-based problems
-  - **Frequency Map**: For counting characters/elements
-  - **Max/Min Queues**: For finding extremes in window
+  - **HashMap**: For counting characters/elements
+  - **Deque**: For finding extremes in window
 - **Purpose**: Determine if we have a valid solution or need to shrink
 
-```python
-# Check if window is valid
-def is_valid_window():
-    return len(char_set) <= k  # for "at most k distinct"
-    # or return window_sum <= target  # for sum problems
+```java
+// Check if window is valid
+private boolean isValidWindow() {
+    return charSet.size() <= k; // for "at most k distinct"
+    // or return windowSum <= target; // for sum problems
+}
 ```
 
 ### 4. 🟠 **Update Result**
@@ -126,10 +126,10 @@ def is_valid_window():
   - Keep track of best solution found so far
 - **When**: After confirming the window is valid
 
-```python
-# Update result with current valid window
-max_length = max(max_length, right - left + 1)
-valid_windows_count += 1
+```java
+// Update result with current valid window
+maxLength = Math.max(maxLength, right - left + 1);
+validWindowsCount++;
 ```
 
 ---
@@ -137,65 +137,84 @@ valid_windows_count += 1
 ## Implementation Templates
 
 ### Variable-Size Window Template
-```python
-def variable_sliding_window(arr, target):
-    left = 0
-    result = 0
-    window_state = {}  # or sum, set, etc.
+```java
+public int variableSlidingWindow(int[] arr, int target) {
+    int left = 0;
+    int result = 0;
+    Map<Integer, Integer> windowState = new HashMap<>(); // or sum, set, etc.
     
-    for right in range(len(arr)):
-        # 1. EXPAND WINDOW
-        # Add arr[right] to window_state
+    for (int right = 0; right < arr.length; right++) {
+        // 1. EXPAND WINDOW
+        // Add arr[right] to windowState
+        windowState.put(arr[right], windowState.getOrDefault(arr[right], 0) + 1);
         
-        # 2. CHECK VALIDITY & SHRINK IF NEEDED
-        while window_is_invalid(window_state):
-            # Remove arr[left] from window_state
-            left += 1  # SHRINK WINDOW
+        // 2. CHECK VALIDITY & SHRINK IF NEEDED
+        while (isWindowInvalid(windowState)) {
+            // Remove arr[left] from windowState
+            windowState.put(arr[left], windowState.get(arr[left]) - 1);
+            if (windowState.get(arr[left]) == 0) {
+                windowState.remove(arr[left]);
+            }
+            left++; // SHRINK WINDOW
+        }
         
-        # 3. UPDATE RESULT
-        result = max(result, right - left + 1)
+        // 3. UPDATE RESULT
+        result = Math.max(result, right - left + 1);
+    }
     
-    return result
+    return result;
+}
 ```
 
 ### Fixed-Size Window Template
-```python
-def fixed_sliding_window(arr, k):
-    window_sum = sum(arr[:k])  # Initialize first window
-    max_sum = window_sum
+```java
+public int fixedSlidingWindow(int[] arr, int k) {
+    // Initialize first window
+    int windowSum = 0;
+    for (int i = 0; i < k; i++) {
+        windowSum += arr[i];
+    }
     
-    for i in range(k, len(arr)):
-        # Slide window: remove left, add right
-        window_sum = window_sum - arr[i - k] + arr[i]
-        max_sum = max(max_sum, window_sum)
+    int maxSum = windowSum;
     
-    return max_sum
+    for (int i = k; i < arr.length; i++) {
+        // Slide window: remove left, add right
+        windowSum = windowSum - arr[i - k] + arr[i];
+        maxSum = Math.max(maxSum, windowSum);
+    }
+    
+    return maxSum;
+}
 ```
 
 ### Frequency Map Template
-```python
-def frequency_sliding_window(s, k):
-    from collections import defaultdict
+```java
+public int frequencySlidingWindow(String s, int k) {
+    int left = 0;
+    Map<Character, Integer> charCount = new HashMap<>();
+    int result = 0;
     
-    left = 0
-    char_count = defaultdict(int)
-    result = 0
-    
-    for right in range(len(s)):
-        # EXPAND: Add character to window
-        char_count[s[right]] += 1
+    for (int right = 0; right < s.length(); right++) {
+        // EXPAND: Add character to window
+        char rightChar = s.charAt(right);
+        charCount.put(rightChar, charCount.getOrDefault(rightChar, 0) + 1);
         
-        # SHRINK: While window has more than k distinct chars
-        while len(char_count) > k:
-            char_count[s[left]] -= 1
-            if char_count[s[left]] == 0:
-                del char_count[s[left]]
-            left += 1
+        // SHRINK: While window has more than k distinct chars
+        while (charCount.size() > k) {
+            char leftChar = s.charAt(left);
+            charCount.put(leftChar, charCount.get(leftChar) - 1);
+            if (charCount.get(leftChar) == 0) {
+                charCount.remove(leftChar);
+            }
+            left++;
+        }
         
-        # UPDATE: Track maximum window size
-        result = max(result, right - left + 1)
+        // UPDATE: Track maximum window size
+        result = Math.max(result, right - left + 1);
+    }
     
-    return result
+    return result;
+}
 ```
 
 ---
@@ -203,58 +222,166 @@ def frequency_sliding_window(s, k):
 ## Common Patterns
 
 ### Pattern 1: Longest Valid Subarray/Substring
-```python
-def longest_valid_subarray(arr, condition):
-    left = 0
-    max_length = 0
+```java
+public int longestValidSubarray(int[] arr) {
+    int left = 0;
+    int maxLength = 0;
     
-    for right in range(len(arr)):
-        # Add arr[right] to window
+    for (int right = 0; right < arr.length; right++) {
+        // Add arr[right] to window
         
-        while not condition_met():
-            # Remove arr[left] from window
-            left += 1
+        while (!conditionMet()) {
+            // Remove arr[left] from window
+            left++;
+        }
         
-        max_length = max(max_length, right - left + 1)
+        maxLength = Math.max(maxLength, right - left + 1);
+    }
     
-    return max_length
+    return maxLength;
+}
 ```
 
 ### Pattern 2: Count of Valid Subarrays
-```python
-def count_valid_subarrays(arr, condition):
-    left = 0
-    count = 0
+```java
+public int countValidSubarrays(int[] arr) {
+    int left = 0;
+    int count = 0;
     
-    for right in range(len(arr)):
-        # Add arr[right] to window
+    for (int right = 0; right < arr.length; right++) {
+        // Add arr[right] to window
         
-        while not condition_met():
-            # Remove arr[left] from window
-            left += 1
+        while (!conditionMet()) {
+            // Remove arr[left] from window
+            left++;
+        }
         
-        # All subarrays ending at 'right' and starting 
-        # from 'left' to 'right' are valid
-        count += right - left + 1
+        // All subarrays ending at 'right' and starting 
+        // from 'left' to 'right' are valid
+        count += right - left + 1;
+    }
     
-    return count
+    return count;
+}
 ```
 
 ### Pattern 3: Minimum Window
-```python
-def minimum_valid_window(arr, target):
-    left = 0
-    min_length = float('inf')
+```java
+public int minimumValidWindow(int[] arr, int target) {
+    int left = 0;
+    int minLength = Integer.MAX_VALUE;
     
-    for right in range(len(arr)):
-        # Add arr[right] to window
+    for (int right = 0; right < arr.length; right++) {
+        // Add arr[right] to window
         
-        while condition_satisfied():
-            min_length = min(min_length, right - left + 1)
-            # Remove arr[left] from window
-            left += 1
+        while (conditionSatisfied()) {
+            minLength = Math.min(minLength, right - left + 1);
+            // Remove arr[left] from window
+            left++;
+        }
+    }
     
-    return min_length if min_length != float('inf') else 0
+    return minLength == Integer.MAX_VALUE ? 0 : minLength;
+}
+```
+
+### Pattern 4: Sliding Window Maximum (Using Deque)
+```java
+import java.util.*;
+
+public int[] slidingWindowMaximum(int[] nums, int k) {
+    Deque<Integer> deque = new ArrayDeque<>(); // stores indices
+    int[] result = new int[nums.length - k + 1];
+    
+    for (int i = 0; i < nums.length; i++) {
+        // Remove indices outside current window
+        while (!deque.isEmpty() && deque.peekFirst() < i - k + 1) {
+            deque.pollFirst();
+        }
+        
+        // Remove indices of smaller elements
+        while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
+            deque.pollLast();
+        }
+        
+        deque.offerLast(i);
+        
+        // Add to result when window is complete
+        if (i >= k - 1) {
+            result[i - k + 1] = nums[deque.peekFirst()];
+        }
+    }
+    
+    return result;
+}
+```
+
+---
+
+## Complete Example Problems
+
+### Example 1: Longest Substring Without Repeating Characters
+```java
+public int lengthOfLongestSubstring(String s) {
+    Set<Character> charSet = new HashSet<>();
+    int left = 0;
+    int maxLength = 0;
+    
+    for (int right = 0; right < s.length(); right++) {
+        // Shrink window until no duplicates
+        while (charSet.contains(s.charAt(right))) {
+            charSet.remove(s.charAt(left));
+            left++;
+        }
+        
+        // Add current character and update result
+        charSet.add(s.charAt(right));
+        maxLength = Math.max(maxLength, right - left + 1);
+    }
+    
+    return maxLength;
+}
+```
+
+### Example 2: Minimum Window Substring
+```java
+public String minWindow(String s, String t) {
+    Map<Character, Integer> targetCount = new HashMap<>();
+    for (char c : t.toCharArray()) {
+        targetCount.put(c, targetCount.getOrDefault(c, 0) + 1);
+    }
+    
+    int left = 0, minStart = 0, minLength = Integer.MAX_VALUE;
+    int formed = 0, required = targetCount.size();
+    Map<Character, Integer> windowCount = new HashMap<>();
+    
+    for (int right = 0; right < s.length(); right++) {
+        char rightChar = s.charAt(right);
+        windowCount.put(rightChar, windowCount.getOrDefault(rightChar, 0) + 1);
+        
+        if (targetCount.containsKey(rightChar) && 
+            windowCount.get(rightChar).intValue() == targetCount.get(rightChar).intValue()) {
+            formed++;
+        }
+        
+        while (formed == required) {
+            if (right - left + 1 < minLength) {
+                minLength = right - left + 1;
+                minStart = left;
+            }
+            
+            char leftChar = s.charAt(left);
+            windowCount.put(leftChar, windowCount.get(leftChar) - 1);
+            if (targetCount.containsKey(leftChar) && 
+                windowCount.get(leftChar) < targetCount.get(leftChar)) {
+                formed--;
+            }
+            left++;
+        }
+    }
+    
+    return minLength == Integer.MAX_VALUE ? "" : s.substring(minStart, minStart + minLength);
+}
 ```
 
 ---
@@ -268,8 +395,8 @@ def minimum_valid_window(arr, target):
 
 ### Intermediate Level
 1. **Longest Substring Without Repeating Characters** (Variable Window + HashSet)
-2. **Minimum Window Substring** (Variable Window + Frequency Map)
-3. **Permutation in String** (Fixed Window + Frequency Map)
+2. **Minimum Window Substring** (Variable Window + HashMap)
+3. **Permutation in String** (Fixed Window + HashMap)
 
 ### Advanced Level
 1. **Sliding Window Maximum** (Deque)
@@ -283,8 +410,32 @@ def minimum_valid_window(arr, target):
 1. **🎯 Identify the Pattern**: Look for keywords that indicate sliding window approach
 2. **📏 Choose Window Type**: Determine if you need fixed-size or variable-size window
 3. **🗂️ Select Data Structure**: Use appropriate data structure for tracking window state
+   - `HashMap<Character, Integer>` for frequency counting
+   - `HashSet<Character>` for uniqueness
+   - `Deque<Integer>` for min/max in sliding window
 4. **🔄 Follow the Flow**: Always expand → check → shrink → update
 5. **⚡ Optimize**: Most sliding window solutions are O(n) time complexity
+
+---
+
+## Common Java Data Structures for Sliding Window
+
+```java
+// For frequency counting
+Map<Character, Integer> charCount = new HashMap<>();
+
+// For uniqueness checks
+Set<Character> charSet = new HashSet<>();
+
+// For min/max in sliding window
+Deque<Integer> deque = new ArrayDeque<>();
+
+// For simple sum calculations
+int windowSum = 0;
+
+// For string building
+StringBuilder sb = new StringBuilder();
+```
 
 ---
 
@@ -296,16 +447,16 @@ def minimum_valid_window(arr, target):
 
 ---
 
-*This guide covers the fundamental concepts and patterns needed to master sliding window techniques for coding interviews and competitive programming.*
+*This guide covers the fundamental concepts and patterns needed to master sliding window techniques for coding interviews and competitive programming using Java.*
 ```
 
-This comprehensive markdown file combines both screenshots and provides:
+This comprehensive Java version includes:
 
-1. **Problem Identification Section** - Based on the first screenshot's decision tree
-2. **Components Section** - Based on the second screenshot's 4-step process
-3. **Implementation Templates** - Practical code examples
-4. **Common Patterns** - Reusable solution patterns
-5. **Practice Problems** - Structured learning path
-6. **Tips and Analysis** - Additional guidance
+1. **All Java-specific syntax** - HashMap, HashSet, Deque, etc.
+2. **Proper Java method signatures** - public int, String, etc.
+3. **Java collections** - ArrayList, HashMap.getOrDefault(), etc.
+4. **Complete working examples** - Full implementations of classic problems
+5. **Java-specific tips** - Data structure recommendations for Java
+6. **Proper error handling** - Integer.MAX_VALUE for impossible cases
 
-The file serves as a complete reference guide that developers can use for coding preparation, covering both the theoretical framework and practical implementation details shown in your screenshots.
+The guide maintains the same structure as the Python version but with idiomatic Java code that's ready to use in coding interviews or competitive programming.
