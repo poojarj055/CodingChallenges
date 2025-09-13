@@ -90,5 +90,18 @@ This check happens after the outer loop is finished. If the final value in coinC
 return coinChangeDp[amount];
 
 
+
+
+Time complexity: \(O(amount*N)\) amount: 
+The target amount.N: The number of coin denominations (the size of the coins array).
+The time complexity is determined by the nested loops in the code. The outer loop runs from i = 1 up to amount.
+The inner loop runs through every coin in the coins array. In the worst-case scenario, the algorithm performs amount * N operations.
+For example, if amount is 100 and there are 3 coins, the inner loop runs 3 times for every iteration of the outer loop, leading to roughly 300 operations.
+
+
+Space complexity: \(O(amount)\) amount: 
+The target amount. The space complexity is determined by the coinChangeDp array, which has a size of amount + 1.
+This array is used to store the minimum number of coins needed for every amount from 0 up to the target amount. 
+The space required grows linearly with the target amount, making the space complexity \(O(amount)\)
 If we successfully found a solution, we return the value stored in the final index of our coinChangeDp array. This is the minimum number of coins required.
   
