@@ -19,8 +19,48 @@
 
 // 1 <= nums.length <= 100
 // 0 <= nums[i] <= 400
+TOP DOWN APPROACH:
+------------------
+
+ class Solution {
+    public int rob(int[] nums) {
+        int n=nums.length;
+        int cache[]=new int[n+1];
+        Arrays.fill(cache,-1);
+        return robRecur(nums,n-1,cache);
+    }
+    int robRecur(int[] nums, int i,int []cache){
+        if(i<0){
+            return 0;
+        }
+        if(i==0){
+            return nums[i];
+        }
+        if(cache[i]!=-1){
+            return cache[i];
+        }
+            int rob=robRecur(nums,i-2,cache)+nums[i];
+            int skip=robRecur(nums,i-1,cache);
+            cache[i]= Math.max(rob,skip);
+            return cache[i];
+    }
+}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------
 class Solution {
     public int rob(int[] nums) {
         if(nums.length<2){
