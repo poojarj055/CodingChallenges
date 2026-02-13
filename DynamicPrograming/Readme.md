@@ -1,5 +1,247 @@
-1. 0 - 1 Knapsack Problem
-https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1
-2. Subset sum Problem
-https://www.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1
+# Dynamic Programming Problems
 
+This repository contains solutions to various Dynamic Programming problems organized by categories. Each problem includes links to LeetCode and/or GeeksforGeeks for practice.
+
+## Table of Contents
+
+- [Stock Trading Problems](#stock-trading-problems)
+- [Knapsack Problems](#knapsack-problems)
+- [House Robber Problems](#house-robber-problems)
+- [Coin Change Problems](#coin-change-problems)
+- [Subset Sum & Partition Problems](#subset-sum--partition-problems)
+- [Climbing Stairs & Jump Problems](#climbing-stairs--jump-problems)
+- [String/Sequence Problems](#stringsequence-problems)
+- [Path & Grid Problems](#path--grid-problems)
+- [Other DP Problems](#other-dp-problems)
+- [2D Dynamic Programming](#2d-dynamic-programming)
+
+---
+
+## Stock Trading Problems
+
+### 1. Best Time to Buy and Sell Stock I
+- **File:** `BuyOrSellStock_I.java`
+- **LeetCode:** [Problem 121 - Easy](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+- **Description:** Single transaction allowed (one buy, one sell)
+
+### 2. Best Time to Buy and Sell Stock II
+- **File:** `BuyOrSellStock_II.java`
+- **LeetCode:** [Problem 122 - Medium](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
+- **Description:** Unlimited transactions allowed
+
+### 3. Best Time to Buy and Sell Stock III
+- **File:** `BuyOrSellStock_III.java`
+- **LeetCode:** [Problem 123 - Hard](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/)
+- **Description:** Limited to at most 2 transactions
+
+### 4. Best Time to Buy and Sell Stock IV
+- **File:** `BuyOrSellStock_IV.java`
+- **LeetCode:** [Problem 188 - Hard](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
+- **Description:** Limited to at most k transactions
+
+### 5. Best Time to Buy and Sell Stock with Cooldown
+- **File:** `BuyOrSellStock_CoolDown.java`
+- **LeetCode:** [Problem 309 - Medium](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
+- **Description:** Unlimited transactions with one-day cooldown after selling
+
+### 6. Best Time to Buy and Sell Stock with Transaction Fee
+- **File:** `BuyOrSellStock_TransactionFee.java`
+- **LeetCode:** [Problem 714 - Medium](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
+- **GeeksforGeeks:** [Buy Stock with Transaction Fee](https://www.geeksforgeeks.org/problems/buy-stock-with-transaction-fee/1)
+- **Description:** Unlimited transactions with fixed transaction fee per buy-sell pair
+
+### 7. Best Time to Buy and Sell Stock (Short Selling)
+- **File:** `BuyOrSellStock_shortSelling.java`
+- **Description:** Stock trading with short selling allowed
+
+---
+
+## Knapsack Problems
+
+### 8. 0/1 Knapsack
+- **File:** `KnapSack.java`
+- **GeeksforGeeks:** [0/1 Knapsack Problem - DP-10](https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/)
+- **Description:** Select items with given profits and weights to maximize profit without exceeding capacity (each item can be included or excluded entirely)
+
+### 9. Unbounded Knapsack
+- **File:** `KnapSackWithDuplicate.java`
+- **GeeksforGeeks:** [Unbounded Knapsack](https://www.geeksforgeeks.org/unbounded-knapsack-repetition-items-allowed/)
+- **Description:** Unlimited instances of each item allowed
+
+---
+
+## House Robber Problems
+
+### 10. House Robber I
+- **File:** `HouseRobber.java`
+- **LeetCode:** [Problem 198 - Medium](https://leetcode.com/problems/house-robber/)
+- **Description:** Rob houses to maximize money without robbing adjacent houses
+
+### 11. House Robber II
+- **File:** `HouseRobberII.java`
+- **LeetCode:** [Problem 213 - Medium](https://leetcode.com/problems/house-robber-ii/)
+- **Description:** Houses arranged in a circle; cannot rob first and last house together
+
+---
+
+## Coin Change Problems
+
+### 12. Coin Change (Minimum Coins)
+- **File:** `MinCoinChange.java`
+- **LeetCode:** [Problem 322 - Medium](https://leetcode.com/problems/coin-change/)
+- **GeeksforGeeks:** [Minimum Number of Coins](https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/)
+- **Description:** Find minimum number of coins needed to make a target sum
+
+### 13. Coin Change 2 (Number of Ways)
+- **File:** `CoinsChange_2.java`
+- **LeetCode:** [Problem 518 - Medium](https://leetcode.com/problems/coin-change-2/)
+- **Description:** Count number of ways to make amount using given coins
+
+---
+
+## Subset Sum & Partition Problems
+
+### 14. Subset Sum
+- **File:** `SubSetSum.java` / `SubsetSum.java`
+- **GeeksforGeeks:** [Subset Sum Problem - DP-25](https://www.geeksforgeeks.org/subset-sum-problem-dp-25/)
+- **Description:** Check if a subset exists with a given target sum
+
+### 15. Partition Equal Subset Sum
+- **File:** `PartionSubsetSum.java`
+- **LeetCode:** [Problem 416 - Medium](https://leetcode.com/problems/partition-equal-subset-sum/)
+- **Description:** Check if array can be partitioned into two subsets with equal sums
+
+### 16. Partition with Given Difference
+- **File:** `PartitionsGivenDifference.java`
+- **GeeksforGeeks:** [Partition with Given Difference](https://www.geeksforgeeks.org/partition-a-set-into-two-subsets-such-that-the-difference-of-subset-sums-is-minimum/)
+- **Description:** Count ways to partition array into two subsets with given difference
+
+### 17. Perfect Sum Problem
+- **File:** `PerfectSum.java`
+- **GeeksforGeeks:** [Perfect Sum Problem](https://www.geeksforgeeks.org/perfect-sum-problem/)
+- **Description:** Print all subsets with sum equal to target K
+
+### 18. Target Sum
+- **File:** `TargetSum.java`
+- **LeetCode:** [Problem 494 - Medium](https://leetcode.com/problems/target-sum/)
+- **Description:** Assign '+' or '-' symbols before each array element to reach target sum
+
+### 19. Minimum Sum Partition
+- **File:** `MinSumPartition.java`
+- **GeeksforGeeks:** [Minimum Sum Partition](https://www.geeksforgeeks.org/partition-a-set-into-two-subsets-such-that-the-difference-of-subset-sums-is-minimum/)
+- **Description:** Partition array into two subsets such that difference of subset sums is minimum
+
+---
+
+## Climbing Stairs & Jump Problems
+
+### 20. Climbing Stairs
+- **File:** `ClimbingStairs.java`
+- **LeetCode:** [Problem 70 - Easy](https://leetcode.com/problems/climbing-stairs/)
+- **Description:** Find distinct ways to climb n steps (1 or 2 steps at a time)
+
+### 21. Min Cost Climbing Stairs
+- **File:** `MinCostToClimStairs.java`
+- **LeetCode:** [Problem 746 - Easy](https://leetcode.com/problems/min-cost-climbing-stairs/)
+- **Description:** Minimize cost to reach the top starting from index 0 or 1
+
+### 22. Frog Jump
+- **File:** `FrogJump.java`
+- **LeetCode:** [Problem 403 - Hard](https://leetcode.com/problems/frog-jump/)
+- **Description:** Determine if a frog can cross a river by jumping on stones
+
+---
+
+## String/Sequence Problems
+
+### 23. Longest Common Subsequence
+- **File:** `LongestCommonSubsequence.java`
+- **LeetCode:** [Problem 1143 - Medium](https://leetcode.com/problems/longest-common-subsequence/)
+- **GeeksforGeeks:** [Longest Common Subsequence](https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/)
+- **Description:** Find the length of the longest common subsequence between two strings
+
+### 24. Edit Distance
+- **File:** `EditStrings.java`
+- **LeetCode:** [Problem 72 - Hard](https://leetcode.com/problems/edit-distance/)
+- **GeeksforGeeks:** [Edit Distance](https://www.geeksforgeeks.org/edit-distance-dp-5/)
+- **Description:** Find minimum number of operations (insert, delete, replace) to convert one string to another
+
+---
+
+## Path & Grid Problems
+
+### 25. Triangle (Minimum Path Sum)
+- **File:** `Triangle.java`
+- **LeetCode:** [Problem 120 - Medium](https://leetcode.com/problems/triangle/)
+- **GeeksforGeeks:** [Minimum Sum Path in a Triangle](https://www.geeksforgeeks.org/minimum-sum-path-triangle/)
+- **Description:** Find minimum path sum from top to bottom in a triangular array
+
+---
+
+## Other DP Problems
+
+### 26. Maximum Sum of Non-Adjacent Elements
+- **File:** `Maximum_sum_of_non-adjacent_elements.java`
+- **GeeksforGeeks:** [Stickler Thief](https://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/)
+- **LeetCode:** [Maximum Sum of Subsequence With Non-adjacent Elements](https://leetcode.com/problems/maximum-sum-of-subsequence-with-non-adjacent-elements/)
+- **Description:** Find maximum sum such that no two elements are adjacent
+
+### 27. Rod Cutting
+- **File:** `RodCutting.java`
+- **GeeksforGeeks:** [Rod Cutting - DP-13](https://www.geeksforgeeks.org/cutting-a-rod-dp-13/)
+- **Description:** Find maximum value by cutting a rod of length n into pieces
+
+### 28. Nth Tribonacci Number
+- **File:** `NthTriFibonaciSeries.java`
+- **LeetCode:** [Problem 1137 - Easy](https://leetcode.com/problems/n-th-tribonacci-number/)
+- **Description:** Calculate the nth Tribonacci number (T(n) = T(n-1) + T(n-2) + T(n-3))
+
+### 29. Minimal Cost
+- **File:** `MinimalCost.java`
+- **GeeksforGeeks:** [Minimal Cost](https://www.geeksforgeeks.org/minimal-cost-to-reach-the-end-of-array/)
+- **Description:** Find minimal cost to reach end of array with given jump costs
+
+---
+
+## 2D Dynamic Programming
+
+For 2D DP problems, please refer to the [`2D-DynamicProgramming`](./2D-DynamicProgramming/) folder.
+
+---
+
+## Problem Solving Approaches
+
+### Common DP Patterns:
+1. **1D DP:** Climbing Stairs, House Robber, Coin Change
+2. **2D DP:** Longest Common Subsequence, Edit Distance, Knapsack
+3. **State Machine DP:** Stock Trading Problems
+4. **Memoization:** Top-down approach with recursion
+5. **Tabulation:** Bottom-up approach with iteration
+6. **Space Optimization:** Reduce space complexity from O(n) to O(1) or O(n²) to O(n)
+
+### Time Complexity:
+- **Naive Recursion:** O(2^n) or O(n!)
+- **Memoization/Tabulation:** O(n) or O(n²) or O(n*capacity)
+- **Space Optimized:** Same time complexity with reduced space
+
+---
+
+## Contributing
+
+Feel free to add more DP problems and solutions. Please ensure:
+- Code is well-commented
+- Solution includes multiple approaches (if applicable)
+- Problem links are verified and working
+- Solutions are optimized
+
+---
+
+## Resources
+
+- [LeetCode Dynamic Programming](https://leetcode.com/tag/dynamic-programming/)
+- [GeeksforGeeks Dynamic Programming](https://www.geeksforgeeks.org/dynamic-programming/)
+- [NeetCode DP Playlist](https://neetcode.io/practice)
+
+---
+
+**Happy Coding! 🚀**
