@@ -183,11 +183,16 @@ This repository contains solutions to various Dynamic Programming problems organ
 - **GeeksforGeeks:** [Edit Distance](https://www.geeksforgeeks.org/edit-distance-dp-5/)
 - **Description:** Find minimum number of operations (insert, delete, replace) to convert one string to another
 
+### 28. Delete Operation for Two Strings
+- **File:** `DeleteOperationFor2Strings.java`
+- **LeetCode:** [Problem 583 - Medium](https://leetcode.com/problems/delete-operation-for-two-strings/)
+- **Description:** Find minimum number of steps required to make two strings the same, where each step deletes exactly one character from either string (based on Longest Common Subsequence)
+
 ---
 
 ## Path & Grid Problems
 
-### 28. Triangle (Minimum Path Sum)
+### 29. Triangle (Minimum Path Sum)
 - **File:** `Triangle.java`
 - **LeetCode:** [Problem 120 - Medium](https://leetcode.com/problems/triangle/)
 - **GeeksforGeeks:** [Minimum Sum Path in a Triangle](https://www.geeksforgeeks.org/minimum-sum-path-triangle/)
@@ -198,7 +203,7 @@ This repository contains solutions to various Dynamic Programming problems organ
 ## Other DP Problems
 
 
-### 29. Nth Tribonacci Number
+### 30. Nth Tribonacci Number
 - **File:** `NthTriFibonaciSeries.java`
 - **LeetCode:** [Problem 1137 - Easy](https://leetcode.com/problems/n-th-tribonacci-number/)
 - **Description:** Calculate the nth Tribonacci number (T(n) = T(n-1) + T(n-2) + T(n-3))
