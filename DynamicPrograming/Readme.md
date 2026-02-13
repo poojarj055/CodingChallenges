@@ -211,30 +211,11 @@ For 2D DP problems, please refer to the [`2D-DynamicProgramming`](./2D-DynamicPr
 
 ---
 
-## Problem Solving Approaches
-
-### Common DP Patterns:
-1. **1D DP:** Climbing Stairs, House Robber, Coin Change
-2. **2D DP:** Longest Common Subsequence, Edit Distance, Knapsack
-3. **State Machine DP:** Stock Trading Problems
-4. **Memoization:** Top-down approach with recursion
-5. **Tabulation:** Bottom-up approach with iteration
-6. **Space Optimization:** Reduce space complexity from O(n) to O(1) or O(n²) to O(n)
 
 ### Time Complexity:
 - **Naive Recursion:** O(2^n) or O(n!)
 - **Memoization/Tabulation:** O(n) or O(n²) or O(n*capacity)
 - **Space Optimized:** Same time complexity with reduced space
-
----
-
-## Contributing
-
-Feel free to add more DP problems and solutions. Please ensure:
-- Code is well-commented
-- Solution includes multiple approaches (if applicable)
-- Problem links are verified and working
-- Solutions are optimized
 
 ---
 
