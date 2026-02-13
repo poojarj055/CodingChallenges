@@ -68,31 +68,43 @@ This repository contains solutions to various Dynamic Programming problems organ
 - **GeeksforGeeks:** [Unbounded Knapsack](https://www.geeksforgeeks.org/unbounded-knapsack-repetition-items-allowed/)
 - **Description:** Unlimited instances of each item allowed
 
+### 10. Rod Cutting
+- **File:** `RodCutting.java`
+- **GeeksforGeeks:** [Rod Cutting - DP-13](https://www.geeksforgeeks.org/cutting-a-rod-dp-13/)
+- **Description:** Find maximum value by cutting a rod of length n into pieces
+
 ---
 
 ## House Robber Problems
 
-### 10. House Robber I
+### 11. House Robber I
 - **File:** `HouseRobber.java`
 - **LeetCode:** [Problem 198 - Medium](https://leetcode.com/problems/house-robber/)
 - **Description:** Rob houses to maximize money without robbing adjacent houses
 
-### 11. House Robber II
+### 12. House Robber II
 - **File:** `HouseRobberII.java`
 - **LeetCode:** [Problem 213 - Medium](https://leetcode.com/problems/house-robber-ii/)
 - **Description:** Houses arranged in a circle; cannot rob first and last house together
+
+### 13. Maximum Sum of Non-Adjacent Elements
+- **File:** `Maximum_sum_of_non-adjacent_elements.java`
+- **GeeksforGeeks:** [Stickler Thief](https://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/)
+- **LeetCode:** [Maximum Sum of Subsequence With Non-adjacent Elements](https://leetcode.com/problems/maximum-sum-of-subsequence-with-non-adjacent-elements/)
+- **Description:** Find maximum sum such that no two elements are adjacent
+
 
 ---
 
 ## Coin Change Problems
 
-### 12. Coin Change (Minimum Coins)
+### 14. Coin Change (Minimum Coins)
 - **File:** `MinCoinChange.java`
 - **LeetCode:** [Problem 322 - Medium](https://leetcode.com/problems/coin-change/)
 - **GeeksforGeeks:** [Minimum Number of Coins](https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/)
 - **Description:** Find minimum number of coins needed to make a target sum
 
-### 13. Coin Change 2 (Number of Ways)
+### 15. Coin Change 2 (Number of Ways)
 - **File:** `CoinsChange_2.java`
 - **LeetCode:** [Problem 518 - Medium](https://leetcode.com/problems/coin-change-2/)
 - **Description:** Count number of ways to make amount using given coins
@@ -101,32 +113,32 @@ This repository contains solutions to various Dynamic Programming problems organ
 
 ## Subset Sum & Partition Problems
 
-### 14. Subset Sum
+### 16. Subset Sum
 - **File:** `SubSetSum.java` / `SubsetSum.java`
 - **GeeksforGeeks:** [Subset Sum Problem - DP-25](https://www.geeksforgeeks.org/subset-sum-problem-dp-25/)
 - **Description:** Check if a subset exists with a given target sum
 
-### 15. Partition Equal Subset Sum
+### 17. Partition Equal Subset Sum
 - **File:** `PartionSubsetSum.java`
 - **LeetCode:** [Problem 416 - Medium](https://leetcode.com/problems/partition-equal-subset-sum/)
 - **Description:** Check if array can be partitioned into two subsets with equal sums
 
-### 16. Partition with Given Difference
+### 18. Partition with Given Difference
 - **File:** `PartitionsGivenDifference.java`
 - **GeeksforGeeks:** [Partition with Given Difference](https://www.geeksforgeeks.org/partition-a-set-into-two-subsets-such-that-the-difference-of-subset-sums-is-minimum/)
 - **Description:** Count ways to partition array into two subsets with given difference
 
-### 17. Perfect Sum Problem
+### 19. Perfect Sum Problem
 - **File:** `PerfectSum.java`
 - **GeeksforGeeks:** [Perfect Sum Problem](https://www.geeksforgeeks.org/perfect-sum-problem/)
 - **Description:** Print all subsets with sum equal to target K
 
-### 18. Target Sum
+### 20. Target Sum
 - **File:** `TargetSum.java`
 - **LeetCode:** [Problem 494 - Medium](https://leetcode.com/problems/target-sum/)
 - **Description:** Assign '+' or '-' symbols before each array element to reach target sum
 
-### 19. Minimum Sum Partition
+### 21. Minimum Sum Partition
 - **File:** `MinSumPartition.java`
 - **GeeksforGeeks:** [Minimum Sum Partition](https://www.geeksforgeeks.org/partition-a-set-into-two-subsets-such-that-the-difference-of-subset-sums-is-minimum/)
 - **Description:** Partition array into two subsets such that difference of subset sums is minimum
@@ -135,32 +147,37 @@ This repository contains solutions to various Dynamic Programming problems organ
 
 ## Climbing Stairs & Jump Problems
 
-### 20. Climbing Stairs
+### 22. Climbing Stairs
 - **File:** `ClimbingStairs.java`
 - **LeetCode:** [Problem 70 - Easy](https://leetcode.com/problems/climbing-stairs/)
 - **Description:** Find distinct ways to climb n steps (1 or 2 steps at a time)
 
-### 21. Min Cost Climbing Stairs
+### 23. Min Cost Climbing Stairs
 - **File:** `MinCostToClimStairs.java`
 - **LeetCode:** [Problem 746 - Easy](https://leetcode.com/problems/min-cost-climbing-stairs/)
 - **Description:** Minimize cost to reach the top starting from index 0 or 1
 
-### 22. Frog Jump
+### 24. Frog Jump
 - **File:** `FrogJump.java`
 - **LeetCode:** [Problem 403 - Hard](https://leetcode.com/problems/frog-jump/)
 - **Description:** Determine if a frog can cross a river by jumping on stones
+
+### 25. Minimal Cost
+- **File:** `MinimalCost.java`
+- **GeeksforGeeks:** [Minimal Cost](https://www.geeksforgeeks.org/minimal-cost-to-reach-the-end-of-array/)
+- **Description:** Find minimal cost to reach end of array with given jump costs
 
 ---
 
 ## String/Sequence Problems
 
-### 23. Longest Common Subsequence
+### 26. Longest Common Subsequence
 - **File:** `LongestCommonSubsequence.java`
 - **LeetCode:** [Problem 1143 - Medium](https://leetcode.com/problems/longest-common-subsequence/)
 - **GeeksforGeeks:** [Longest Common Subsequence](https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/)
 - **Description:** Find the length of the longest common subsequence between two strings
 
-### 24. Edit Distance
+### 27. Edit Distance
 - **File:** `EditStrings.java`
 - **LeetCode:** [Problem 72 - Hard](https://leetcode.com/problems/edit-distance/)
 - **GeeksforGeeks:** [Edit Distance](https://www.geeksforgeeks.org/edit-distance-dp-5/)
@@ -170,7 +187,7 @@ This repository contains solutions to various Dynamic Programming problems organ
 
 ## Path & Grid Problems
 
-### 25. Triangle (Minimum Path Sum)
+### 28. Triangle (Minimum Path Sum)
 - **File:** `Triangle.java`
 - **LeetCode:** [Problem 120 - Medium](https://leetcode.com/problems/triangle/)
 - **GeeksforGeeks:** [Minimum Sum Path in a Triangle](https://www.geeksforgeeks.org/minimum-sum-path-triangle/)
@@ -180,26 +197,11 @@ This repository contains solutions to various Dynamic Programming problems organ
 
 ## Other DP Problems
 
-### 26. Maximum Sum of Non-Adjacent Elements
-- **File:** `Maximum_sum_of_non-adjacent_elements.java`
-- **GeeksforGeeks:** [Stickler Thief](https://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/)
-- **LeetCode:** [Maximum Sum of Subsequence With Non-adjacent Elements](https://leetcode.com/problems/maximum-sum-of-subsequence-with-non-adjacent-elements/)
-- **Description:** Find maximum sum such that no two elements are adjacent
 
-### 27. Rod Cutting
-- **File:** `RodCutting.java`
-- **GeeksforGeeks:** [Rod Cutting - DP-13](https://www.geeksforgeeks.org/cutting-a-rod-dp-13/)
-- **Description:** Find maximum value by cutting a rod of length n into pieces
-
-### 28. Nth Tribonacci Number
+### 29. Nth Tribonacci Number
 - **File:** `NthTriFibonaciSeries.java`
 - **LeetCode:** [Problem 1137 - Easy](https://leetcode.com/problems/n-th-tribonacci-number/)
 - **Description:** Calculate the nth Tribonacci number (T(n) = T(n-1) + T(n-2) + T(n-3))
-
-### 29. Minimal Cost
-- **File:** `MinimalCost.java`
-- **GeeksforGeeks:** [Minimal Cost](https://www.geeksforgeeks.org/minimal-cost-to-reach-the-end-of-array/)
-- **Description:** Find minimal cost to reach end of array with given jump costs
 
 ---
 
