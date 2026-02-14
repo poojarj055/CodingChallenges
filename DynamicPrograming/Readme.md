@@ -188,11 +188,23 @@ This repository contains solutions to various Dynamic Programming problems organ
 - **LeetCode:** [Problem 583 - Medium](https://leetcode.com/problems/delete-operation-for-two-strings/)
 - **Description:** Find minimum number of steps required to make two strings the same, where each step deletes exactly one character from either string (based on Longest Common Subsequence)
 
+### 29. Shortest Common Supersequence
+- **File:** `ShortestCommonSequence.java`
+- **LeetCode:** [Problem 1092 - Hard](https://leetcode.com/problems/shortest-common-supersequence/)
+- **GeeksforGeeks:** [Shortest Common Supersequence](https://www.geeksforgeeks.org/problems/shortest-common-supersequence0322/1)
+- **Description:** Find the shortest string that has both given strings as subsequences (based on Longest Common Subsequence)
+
+### 30. Longest Palindromic Subsequence
+- **File:** `LongestPalandromicSubsequence.java`
+- **LeetCode:** [Problem 516 - Medium](https://leetcode.com/problems/longest-palindromic-subsequence/)
+- **GeeksforGeeks:** [Longest Palindromic Subsequence - DP-12](https://www.geeksforgeeks.org/dsa/longest-palindromic-subsequence-dp-12/)
+- **Description:** Find the length of the longest palindromic subsequence in a given string
+
 ---
 
 ## Path & Grid Problems
 
-### 29. Triangle (Minimum Path Sum)
+### 31. Triangle (Minimum Path Sum)
 - **File:** `Triangle.java`
 - **LeetCode:** [Problem 120 - Medium](https://leetcode.com/problems/triangle/)
 - **GeeksforGeeks:** [Minimum Sum Path in a Triangle](https://www.geeksforgeeks.org/minimum-sum-path-triangle/)
@@ -203,7 +215,7 @@ This repository contains solutions to various Dynamic Programming problems organ
 ## Other DP Problems
 
 
-### 30. Nth Tribonacci Number
+### 32. Nth Tribonacci Number
 - **File:** `NthTriFibonaciSeries.java`
 - **LeetCode:** [Problem 1137 - Easy](https://leetcode.com/problems/n-th-tribonacci-number/)
 - **Description:** Calculate the nth Tribonacci number (T(n) = T(n-1) + T(n-2) + T(n-3))
