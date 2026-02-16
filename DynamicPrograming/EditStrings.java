@@ -22,32 +22,45 @@
 // Constraints:
 // 0 <= word1.length, word2.length <= 500
 // word1 and word2 consist of lowercase English letters.
-
 class Solution {
+
     public int minDistance(String word1, String word2) {
-        int m=word1.length();
-        int n=word2.length();
-        int ans[][]=new int[m+1][n+1];
-        for(int i=1;i<m+1;++i){
-            ans[i][0]=i;
+        Integer [][] cache=new Integer[word1.length()+1][word2.length()+1];
+        return minDistanceRecur(word1, word2, 0, 0, cache);
+    }
+
+    int minDistanceRecur(String word1, String word2, int index1, int index2, Integer [][] cache) {
+        if (index1 > word1.length() - 1 && index2 > word2.length() - 1) {
+            return 0;
         }
-        for(int j=1;j<n+1;++j){
-            ans[0][j]=j;
+
+        if (index2 > word2.length() - 1) {
+            // word2 over, word1 not over
+            return word1.length() - index1;
         }
-        for(int i=1;i<m+1;++i){
-            for(int j=1;j<n+1;++j){
-                if(word1.charAt(i-1)==word2.charAt(j-1)){
-                    ans[i][j]=ans[i-1][j-1];
-                }
-                else{
-                    int top=ans[i-1][j];
-                    int left=ans[i][j-1];
-                    int topLeft=ans[i-1][j-1];
-                    ans[i][j]=(Math.min(Math.min(top,left),topLeft))+1;
-                }
-            }
+
+        if (index1 > word1.length() - 1) {
+            // word1 over, word2 not over
+            return word2.length() - index2;
         }
-        return ans[m][n];
+
+        if(cache[index1][index2]!=null){
+            return cache[index1][index2];
+        }
+
+        if (word1.charAt(index1) == word2.charAt(index2)) {
+            return minDistanceRecur(word1, word2, index1 + 1, index2 + 1, cache);
+        } else {
+            //in delete letter increase index of deleted word, if replace increase both the index
+            int delete = minDistanceRecur(word1, word2, index1 + 1, index2, cache) + 1;
+            
+            int replace = minDistanceRecur(word1, word2, index1 + 1, index2 + 1, cache) + 1;
+
+            int insert = minDistanceRecur(word1, word2, index1, index2 + 1, cache) + 1;
+
+            cache[index1][index2]= Math.min(insert, Math.min(delete, replace));
+            return cache[index1][index2];
+        }
     }
 }
 
@@ -68,87 +81,3 @@ Every cell ans[i][j] is filled based on constant-time operations (comparisons an
 You’re storing the entire (m+1) × (n+1) table in memory to keep track of subproblem solutions.  
 
 -----------------------------------------------------------------------------------------
-Explanation
-----------------
-### 🧠 What’s the big idea?
-
-We’re using **dynamic programming** to solve this efficiently by breaking the problem into subproblems and building up a solution using a table (`ans[][]`).
-
----
-
-### 🧱 Step-by-Step Breakdown
-
-```java
-int m = word1.length();
-int n = word2.length();
-int[][] ans = new int[m + 1][n + 1];
-```
-- We define `m` and `n` as the lengths of the two input strings.
-- `ans[i][j]` will store the minimum edit distance between:
-  - The first `i` characters of `word1`
-  - The first `j` characters of `word2`
-
----
-
-### 🧹 Base Case Initialization
-
-```java
-for (int i = 0; i <= m; i++) {
-    ans[i][0] = i;
-}
-for (int j = 0; j <= n; j++) {
-    ans[0][j] = j;
-}
-```
-
-- To convert from a string of length `i` to an **empty** string, we need `i` **deletions**.
-- To convert an empty string to a string of length `j`, we need `j` **insertions**.
-
----
-
-### 🔁 Main Dynamic Programming Loop
-
-```java
-for (int i = 1; i <= m; i++) {
-    for (int j = 1; j <= n; j++) {
-        if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
-            ans[i][j] = ans[i - 1][j - 1]; // characters match, no change needed
-        } else {
-            ans[i][j] = Math.min(
-                Math.min(ans[i - 1][j], ans[i][j - 1]), // delete or insert
-                ans[i - 1][j - 1] // replace
-            ) + 1;
-        }
-    }
-}
-```
-
-- If characters match, no operation is needed.
-- If they don’t:
-  - `ans[i - 1][j]` → delete a character from `word1`
-  - `ans[i][j - 1]` → insert a character into `word1`
-  - `ans[i - 1][j - 1]` → replace a character
-
-We pick the **minimum** of these and add 1 (for the operation just performed).
-
----
-
-### ✅ Final Answer
-
-```java
-return ans[m][n];
-```
-
-The cell `ans[m][n]` contains the final result: **the minimum number of edits to transform `word1` into `word2`.**
-
----
-
-### 🔍 Example
-
-If `word1 = "horse"` and `word2 = "ros"`, the output would be `3`, since we can:
-
-1. Replace 'h' with 'r'
-2. Remove 'e'
-3. Remove 's'
-
----
