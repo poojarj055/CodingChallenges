@@ -200,6 +200,26 @@ This repository contains solutions to various Dynamic Programming problems organ
 - **GeeksforGeeks:** [Longest Palindromic Subsequence - DP-12](https://www.geeksforgeeks.org/dsa/longest-palindromic-subsequence-dp-12/)
 - **Description:** Find the length of the longest palindromic subsequence in a given string
 
+### 31. Wildcard Matching
+- **File:** `WildcardMatching.java`
+- **LeetCode:** [Problem 44 - Hard](https://leetcode.com/problems/wildcard-matching/)
+- **Description:** Implement pattern matching with support for `?` and `*` wildcards
+
+### 32. Longest Repeating Subsequence
+- **File:** `LongestRepeatingSubsequence.java`
+- **GeeksforGeeks:** [Longest Repeating Subsequence](https://www.geeksforgeeks.org/problems/longest-repeating-subsequence2004/1)
+- **Description:** Find the length of the longest subsequence that appears at least twice in the string
+
+### 33. Distinct Subsequences
+- **File:** `DistinctSubsequences.java`
+- **LeetCode:** [Problem 115 - Hard](https://leetcode.com/problems/distinct-subsequences/)
+- **Description:** Count the number of distinct subsequences of string `s` that equal string `t`
+
+### 34. Print Longest Common Subsequence
+- **File:** `PrintLongestCommonSubsequence.java`
+- **Naukri Code360:** [Print Longest Common Subsequence](https://www.naukri.com/code360/problems/print-longest-common-subsequence_8416383?leftPanelTabValue=PROBLEM)
+- **Description:** Print the longest common subsequence between two strings
+
 ---
 
 ## Path & Grid Problems
