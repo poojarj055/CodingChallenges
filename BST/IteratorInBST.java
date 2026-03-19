@@ -74,6 +74,12 @@ class BSTIterator {
     private void pushAll(TreeNode node){
         for(; node!=null; stack.push(node),node=node.left );
      }
+ /*In Java, a for loop has three parts: for(initialization; condition; update).
+In your code:
+Initialization: (Empty) — It uses the node passed into the function.
+Condition: node != null — Keep going as long as we haven't hit a "dead end."
+Update: stack.push(node), node = node.left — This does two things: it puts the current node on the stack, then moves to the left child.
+*/
 }
 
 /**
