@@ -61,6 +61,40 @@ Track max: Update maxCount with the size of the valid window.
 🔁 Step-by-Step Flow
 Move right forward to include new fruits.
 
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+A trick to remember
+
+When solving sliding window problems with a HashMap, always ask yourself:
+
+Which element is entering the window?
+
+That's always right:
+
+map.put(fruits[right], map.getOrDefault(fruits[right], 0) + 1);
+
+Which element is leaving the window?
+
+That's always left:
+
+map.put(fruits[left], map.get(fruits[left]) - 1);
+if (map.get(fruits[left]) == 0) {
+    map.remove(fruits[left]);
+}
+left++;
+
+This "enter with right, leave with left" rule works for many sliding window problems involving HashMap, such as:
+
+904. Fruit Into Baskets
+3. Longest Substring Without Repeating Characters
+340. Longest Substring with At Most K Distinct Characters
+76. Minimum Window Substring
+
+Once you internalize this pattern, these problems become much easier to recognize and implement.
+
 If map.size() > 2, shrink the window from the left until only 2 types remain.
 
 Keep updating maxCount with the largest valid window size.
